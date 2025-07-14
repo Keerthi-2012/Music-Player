@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/albumsheet.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <p class="special">BlackPink</p>
+
+    <table class="table">
+        <tr>
+            <td>
+                <a href="{{ url_for('bornpsongs') }}">
+                    <img src="../static/bornpi.jpeg" class="round">
+                    <div class="middle">
+                        <div class="text">BORN PINK<br>7 SONGS<br>Released: 2022</div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url_for('squaresongs') }}">
+                    <img src="../static/squareup.jpeg" class="round">
+                    <div class="middle">
+                        <div class="text">SQUARE UP<br>4 SONGS<br>Released: 2018</div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <table class="table">
+        <tr>
+            <td>
+                <a href="{{ url_for('thesongs') }}">
+                    <img src="../static/thealbum.jpeg" class="round">
+                    <div class="middle">
+                        <div class="text">THE ALBUM<br>7 SONGS<br>Released: 2020</div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url_for('squareonesongs') }}">
+                    <img src="../static/squareone.jpg" class="round">
+                    <div class="middle">
+                        <div class="text">SQUARE ONE<br>4 SONGS<br>Released: 2016</div>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="{{ url_for('killsongs') }}">
+                    <img src="../static/kill.jpeg" class="round">
+                    <div class="middle">
+                        <div class="text">KILL THIS LOVE<br>5 SONGS<br>Released: 2019</div>
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        <p>Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+</body>
+</html>

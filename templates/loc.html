@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crazy In Love Album - Euterpe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='songsstyle.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <main class="songs">
+
+        <img src="{{ url_for('static', filename='crazy.jpeg') }}" width="500" height="500" alt="Crazy In Love Album Cover">
+
+        <table align="center">
+            <tr>
+                <td><strong>LOCO</strong> - Duration: 3:55</td>
+                <td><button class="add-to-playlist" data-title="LOCO">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>SWIPE</strong> - Duration: 3:53</td>
+                <td><button class="add-to-playlist" data-title="SWIPE">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>SOOO LUCKY</strong> - Duration: 3:59</td>
+                <td><button class="add-to-playlist" data-title="SOOO LUCKY">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>#TWENTY</strong> - Duration: 3:16</td>
+                <td><button class="add-to-playlist" data-title="#TWENTY">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>GAS ME UP</strong> - Duration: 4:00</td>
+                <td><button class="add-to-playlist" data-title="GAS ME UP">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>LOVE IS</strong> - Duration: 3:35</td>
+                <td><button class="add-to-playlist" data-title="LOVE IS">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>MIRROR</strong> - Duration: 4:26</td>
+                <td><button class="add-to-playlist" data-title="MIRROR">Add to Playlist</button></td>
+            </tr>
+        </table>
+
+        <form id="hiddenForm" action="{{ url_for('add_song') }}" method="post" style="display: none;">
+            <input type="hidden" id="titleInput" name="title">
+            <input type="hidden" name="filename" value="loc">
+        </form>
+
+    </main>
+
+    <footer>
+        <p>Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='playlist.js') }}"></script>
+
+</body>
+</html>

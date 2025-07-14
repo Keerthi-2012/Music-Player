@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artists | Euterpe</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='euterpe.css') }}"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            background-image: url('../static/cdbg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #aefeff;
+        }
+
+        header {
+            height: 8vh;
+            width: 100%;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 4px 6px rgba(0, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        li a {
+            color: #aefeff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        li a:hover{
+            background-color: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+        }
+
+        .center {
+            margin: 3% auto;
+            width: 70%;
+            border-collapse: separate;
+            border-spacing: 0 30px;
+        }
+
+        .center td {
+            vertical-align: middle;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+
+        .center img {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+        }
+
+        .center img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .align-left {
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .align-left a {
+            color: #00ffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .align-left a:hover {
+            text-decoration: underline;
+            color: #a7ffeb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            color: #d1fae5;
+            font-size: 0.95rem;
+            box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #a7ffeb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #5eead4;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a class="active" href="{{ url_for('artists') }}"><strong>Artists</strong></a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist Spotlight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <table class="center">
+        <tr>
+            <td><a href="{{ url_for('btsal') }}">
+                <img src="../static/bts.avif" alt="BTS">
+            </a></td>
+            <td class="align-left"><a href="{{ url_for('btsal') }}">BTS</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('selal') }}">
+                <img src="../static/selena.jpeg" alt="Selena Gomez">
+            </a></td>
+            <td class="align-left"><a href="{{ url_for('selal') }}">Selena Gomez</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('itzyal') }}">
+                <img src="../static/ITZY.jpeg" alt="ITZY">
+            </a></td>
+            <td class="align-left"><a href="{{ url_for('itzyal') }}">ITZY</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('tayloral') }}">
+                <img src="../static/Taylor.jpg" alt="Taylor Swift">
+            </a></td>
+            <td class="align-left"><a href="{{ url_for('tayloral') }}">Taylor Swift</a></td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('bpal') }}">
+                <img src="../static/bp.jpeg" alt="BlackPink">
+            </a></td>
+            <td class="align-left"><a href="{{ url_for('bpal') }}">BlackPink</a></td>
+        </tr>
+    </table>
+
+    <footer>
+        <p>
+            Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+</body>
+</html>

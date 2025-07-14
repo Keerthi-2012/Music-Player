@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            background-image: url('../static/blackbg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #aefeff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            height: 8vh;
+            width: 100%;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 4px 6px rgba(0, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        li {
+            display: inline;
+        }
+
+        li a {
+            color: #aefeff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        li a:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+        }
+
+        .home {
+            display: table;
+            margin: 2%;
+        }
+
+        .top {
+            display: table-row;
+        }
+
+        .column1, .column2 {
+            display: table-cell;
+            margin: 1%;
+            float: left;
+        }
+
+        img.round {
+            border-radius: 20px;
+            transition: transform 0.4s ease;
+        }
+
+        img.round:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            position: relative;
+            width: 250px;
+        }
+
+        .middle {
+            transition: 0.5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.12);
+            padding: 10px 20px;
+            border-radius: 12px;
+        }
+
+        .container:hover .middle {
+            opacity: 1;
+        }
+
+        .text {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        h2 {
+            color: #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .songs ul {
+            color: #00ffff;
+            text-align: left;
+            font-size: 1.2rem;
+            margin-left: 3%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            color: #d1fae5;
+            font-size: 0.95rem;
+            box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #a7ffeb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #5eead4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}"><strong>Home</strong></a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <div class="home">
+        <h2 id="first"></h2>
+
+        <div class="top">
+            <div class="column1">
+                <a href="{{ url_for('btsal') }}">
+                    <h3>BTS</h3>
+                </a>
+                <a href="{{ url_for('btsal') }}">
+                    <div class="container">
+                        <img src="../static/bts.avif" class="round" height="250px" width="250px">
+                        <div class="middle">
+                            <div class="text">BTS</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column1">
+                <a href="{{ url_for('bpal') }}">
+                    <h3>BLACKPINK</h3>
+                </a>
+                <a href="{{ url_for('bpal') }}">
+                    <div class="container">
+                        <img src="../static/blackpink.jpg" class="round" height="250px" width="250px">
+                        <div class="middle">
+                            <div class="text">BlackPink</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column1">
+                <a href="{{ url_for('selal') }}">
+                    <h3>SELENA GOMEZ</h3>
+                </a>
+                <a href="{{ url_for('selal') }}">
+                    <div class="container">
+                        <img src="../static/salena.jpg" class="round" height="250px" width="250px">
+                        <div class="middle">
+                            <div class="text">Selena Gomez</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <br><br><br><br>
+
+        <h2>TOP ALBUMS</h2>
+
+        <div class="top">
+            <div class="column2">
+                <a href="{{ url_for('lysongs') }}">
+                    <h3>LOVE YOURSELF</h3>
+                </a>
+                <a href="{{ url_for('lysongs') }}">
+                    <div class="container">
+                        <img src="../static/BTSloveyourself.jpeg" height="250px" width="250px" class="round">
+                        <div class="middle">
+                            <div class="text">Love Yourself</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column2">
+                <a href="{{ url_for('bornpsongs') }}">
+                    <h3>BORN PINK</h3>
+                </a>
+                <a href="{{ url_for('bornpsongs') }}">
+                    <div class="container">
+                        <img src="../static/bornpi.jpeg" height="250px" width="250px" class="round">
+                        <div class="middle">
+                            <div class="text">Born Pink</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column2">
+                <a href="{{ url_for('raresongs') }}">
+                    <h3>RARE</h3>
+                </a>
+                <a href="{{ url_for('raresongs') }}">
+                    <div class="container">
+                        <img src="../static/rare.jpg" width="250px" height="250px" class="round">
+                        <div class="middle">
+                            <div class="text">Rare</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <br><br><br><br>
+
+        <h2>TOP SONGS</h2>
+        <div class="songs">
+            <ul>
+                <li>FAKE LOVE - by BTS</li><br>
+                <li>ICE CREAM - by BLACKPINK</li><br>
+                <li>WHO SAYS - by SELENA GOMEZ</li>
+            </ul>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <footer>
+        <p>Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+        <br>
+    </footer>
+
+    <script src="../static/indexjava.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IT'z ME Album - Euterpe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='songsstyle.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <main class="songs">
+
+        <img src="{{ url_for('static', filename='itzme.jpg') }}" width="500" height="500" alt="IT'z ME Album Cover">
+
+        <table align="center">
+            <tr>
+                <td><strong>WANNABE</strong> - Duration: 3:55</td>
+                <td><button class="add-to-playlist" data-title="WANNABE">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>TING TING TING</strong> - Duration: 3:53</td>
+                <td><button class="add-to-playlist" data-title="TING TING TING">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>THAT'S A NO NO</strong> - Duration: 3:59</td>
+                <td><button class="add-to-playlist" data-title="THAT'S A NO NO">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>NOBODY LIKE YOU</strong> - Duration: 3:16</td>
+                <td><button class="add-to-playlist" data-title="NOBODY LIKE YOU">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>YOU MAKE ME</strong> - Duration: 4:00</td>
+                <td><button class="add-to-playlist" data-title="YOU MAKE ME">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>I DON'T WANNA DANCE</strong> - Duration: 3:35</td>
+                <td><button class="add-to-playlist" data-title="I DON'T WANNA DANCE">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><strong>24HRS</strong> - Duration: 4:26</td>
+                <td><button class="add-to-playlist" data-title="24HRS">Add to Playlist</button></td>
+            </tr>
+        </table>
+
+        <form id="hiddenForm" action="{{ url_for('add_song') }}" method="post" style="display: none;">
+            <input type="hidden" id="titleInput" name="title">
+            <input type="hidden" name="filename" value="ITZME">
+        </form>
+
+    </main>
+
+    <footer>
+        <p>
+            Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='playlist.js') }}"></script>
+
+</body>
+</html>

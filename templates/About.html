@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f; /* deep black */
+            color: #aefeff; /* soft cyan text */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        header {
+            height: 8vh;
+            width: 100%;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a); /* deep black gradient */
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 4px 6px rgba(0, 255, 255, 0.2);
+            z-index: 1000;
+        }
+
+        header img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        li a {
+            color: #aefeff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        li a:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+        }
+
+        .mid {
+            width: 65%;
+            margin: 2.5% auto;
+            font-size: 1.15rem;
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.05);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s ease;
+        }
+
+        .mid:hover {
+            transform: scale(1.02);
+        }
+
+        .mid img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a);
+            color: #aefeff;
+            margin-top: 50px;
+            font-size: 0.95rem;
+            box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
+        }
+
+        footer a {
+            color: #7fffd4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #00ffff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}"><strong>About</strong></a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist Spotlight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <div class="mid">
+        <p>Welcome to Euterpe, a music-focused website created by Keerthi, a dedicated ECE student at IIIT-H. My goal is
+            to provide a platform that showcases the top artists and their most popular songs based on reviews, creating
+            an IMDb equivalent for music enthusiasts.</p>
+    </div>
+
+    <div class="mid">
+        <img src="../static/picofus.jpeg" alt="Creator Image">
+    </div>
+
+    <div class="mid">
+        <p>I have put a significant amount of effort into designing and developing this website. My passion for music
+            and commitment to creating an exceptional user experience has driven me to build a site that not only looks
+            beautiful but also provides valuable insights into the music industry.</p>
+    </div>
+
+    <div class="mid">
+        <p>Allow me to introduce myself. Keerthi Seela, an 18-year-old embodiment of determination and genuine kindness,
+            navigates through challenges with grace and enthusiasm, motivating those around her to embrace a more upbeat
+            perspective on life.</p>
+    </div>
+
+    <div class="mid">
+        <p>I hope you enjoy exploring Euterpe and discovering new music. As I continue to develop this project, I will
+            update my About page with new information, so stay tuned!</p>
+    </div>
+
+    <footer>
+        <p>
+            Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+</body>
+</html>

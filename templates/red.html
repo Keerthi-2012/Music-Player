@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Red Album - Euterpe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='songsstyle.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <main class="songs">
+        <img src="{{ url_for('static', filename='red.jpeg') }}" width="500" height="500" alt="Red Album Cover">
+
+        <table align="center">
+            <tr><td><strong>STATE OF GRACE</strong> – Duration: 3:55</td><td><button class="add-to-playlist" data-title="STATE OF GRACE">Add to Playlist</button></td></tr>
+            <tr><td><strong>RED</strong> – Duration: 3:53</td><td><button class="add-to-playlist" data-title="RED">Add to Playlist</button></td></tr>
+            <tr><td><strong>TREACHEROUS</strong> – Duration: 3:59</td><td><button class="add-to-playlist" data-title="TREACHEROUS">Add to Playlist</button></td></tr>
+            <tr><td><strong>I KNEW YOU WERE TROUBLE</strong> – Duration: 3:16</td><td><button class="add-to-playlist" data-title="I KNEW YOU WERE TROUBLE">Add to Playlist</button></td></tr>
+            <tr><td><strong>ALL TOO WELL</strong> – Duration: 4:00</td><td><button class="add-to-playlist" data-title="ALL TOO WELL">Add to Playlist</button></td></tr>
+            <tr><td><strong>22</strong> – Duration: 3:35</td><td><button class="add-to-playlist" data-title="22">Add to Playlist</button></td></tr>
+            <tr><td><strong>I ALMOST DO</strong> – Duration: 4:26</td><td><button class="add-to-playlist" data-title="I ALMOST DO">Add to Playlist</button></td></tr>
+        </table>
+
+        <form id="hiddenForm" action="{{ url_for('add_song') }}" method="post" style="display: none;">
+            <input type="hidden" id="titleInput" name="title">
+            <input type="hidden" name="filename" value="red">
+        </form>
+    </main>
+
+    <footer>
+        <p>
+            Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='playlist.js') }}"></script>
+
+</body>
+</html>

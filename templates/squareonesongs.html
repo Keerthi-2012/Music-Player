@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/songsstyle.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><a href="{{ url_for('playlist') }}">My Playlist</a></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <div class="songs">
+        <img src="../static/squareone.jpg" alt="Square One Album Cover">
+
+        <table>
+            <tr>
+                <td><span class="song-title">WHISTLE</span> <span class="duration">- Duration: 4:01</span></td>
+                <td><button class="add-to-playlist" data-title="WHISTLE">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><span class="song-title">BOOMBAYAH</span> <span class="duration">- Duration: 4:53</span></td>
+                <td><button class="add-to-playlist" data-title="BOOMBAYAH">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><span class="song-title">PLAYING WITH FIRE</span> <span class="duration">- Duration: 3:47</span></td>
+                <td><button class="add-to-playlist" data-title="PLAYING WITH FIRE">Add to Playlist</button></td>
+            </tr>
+            <tr>
+                <td><span class="song-title">STAY</span> <span class="duration">- Duration: 3:19</span></td>
+                <td><button class="add-to-playlist" data-title="STAY">Add to Playlist</button></td>
+            </tr>
+        </table>
+
+        <form id="hiddenForm" action="{{ url_for('add_song') }}" method="post" style="display: none;">
+            <input type="hidden" id="titleInput" name="title">
+            <input type="hidden" value="squareonesongs" name="filename">
+        </form>
+    </div>
+
+    <footer>
+        <p>Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+    <script src="{{ url_for('static', filename='playlist.js') }}"></script>
+
+</body>
+
+</html>

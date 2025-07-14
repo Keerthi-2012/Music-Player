@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='playlist.css') }}">
+    <title>My Playlist</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('about') }}">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Euterpe Logo">
+        </a>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('artists') }}">Artists</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('searchpage') }}">New Search</a></li>
+            <li><a href="{{ url_for('spotlight') }}">Artist SpotLight</a></li>
+            <li><strong><a href="{{ url_for('playlist') }}">My Playlist</a></strong></li>
+        </ul>
+    </header>
+
+    <script src="{{ url_for('static', filename='naveffect.js') }}"></script>
+
+    <main style="text-align: center; padding: 40px 20px;">
+        <h1 style="color: cyan; margin-bottom: 40px;">My Playlist</h1>
+
+        {% if data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Song Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in data %}
+                <tr>
+                    <td>{{ song.title }}</td>
+                    <td>
+                        <button onclick="removeSong('{{ song.title }}')">Remove</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="color: #ccc; font-size: 1.2rem;">Your playlist is empty. Add some songs!</p>
+        {% endif %}
+
+        <form id="removeSongForm" action="{{ url_for('remove_song') }}" method="post" style="display: none;">
+            <input type="hidden" id="removeTitleInput" name="title">
+        </form>
+    </main>
+
+    <footer>
+        <p>Author: Keerthi<br>
+            <a href="mailto:keerthi.seela@students.iiit.ac.in">keerthi.seela@students.iiit.ac.in</a><br>
+            &copy; Euterpe
+        </p>
+        <a href="{{ url_for('about') }}">About</a>
+    </footer>
+
+    <script>
+        function removeSong(songTitle) {
+            const form = document.getElementById('removeSongForm');
+            const input = document.getElementById('removeTitleInput');
+            input.value = songTitle;
+            form.submit();
+        }
+    </script>
+
+</body>
+</html>
